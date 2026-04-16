@@ -25,6 +25,13 @@ These algorithms are built from scratch using only the standard Python `math` li
   * Continuously evaluates the interval length $|b-a|$ and the absolute function value $|f(x)|$ as dual stopping criteria.
   * Outputs detailed step-by-step verification, proving that the theoretical minimum iterations align with the practical computational output.
 
+### Problem 4: Large-Scale Sparse Matrix Computation & Cholesky Decomposition
+**Objective:** Solve a symmetric positive definite linear system $Ax = B$ utilizing experimental data (`data2.mat`), transitioning from a $100 \times 100$ principal submatrix to a full $6461 \times 6461$ sparse matrix.
+* **Features:**
+  * Implements standard Cholesky decomposition ($A = LL^T$) and Modified Cholesky decomposition ($A = LDL^T$) purely from scratch, adhering to first principles without calling pre-built matrix factorization functions.
+  * Strictly verifies numerical accuracy by calculating the infinity norm of the residual vector $||Ax - B||_{\infty}$ after deriving the solution.
+  * Evaluates algorithm scalability and memory efficiency, contrasting the custom loop-based implementations with optimized sparse direct solvers when handling the full-scale sparse dataset.
+  
 ## Prerequisites
 * Python 3.6 or higher.
 * No external libraries required (uses built-in `math` module).

@@ -31,10 +31,18 @@ These algorithms are built from scratch using only the standard Python `math` li
   * Implements standard Cholesky decomposition ($A = LL^T$) and Modified Cholesky decomposition ($A = LDL^T$) purely from scratch, adhering to first principles without calling pre-built matrix factorization functions.
   * Strictly verifies numerical accuracy by calculating the infinity norm of the residual vector $||Ax - B||_{\infty}$ after deriving the solution.
   * Evaluates algorithm scalability and memory efficiency, contrasting the custom loop-based implementations with optimized sparse direct solvers when handling the full-scale sparse dataset.
+
+### Problem 5: Iterative Methods for Linear Systems
+**Objective:** Solve a $4 \times 4$ linear system $Ax = b$ using classical stationary iterative methods and compare their convergence behavior under the relative residual stopping criterion $\frac{||b - Ax_k||}{||b||} < 10^{-6}$.
+* **Features:**
+  * Implements the **Jacobi Method**, **Gauss-Seidel Method**, and **SOR Method** based on the matrix splitting $A = D - L - U$.
+  * Uses the zero vector as the initial approximation and tracks the residual norm after each iteration to determine whether the numerical solution has reached the required accuracy.
+  * Includes divergence protection for unstable iterations and selects an under-relaxation factor $\omega = 0.1$ for SOR to improve convergence reliability on the given coefficient matrix.
   
 ## Prerequisites
 * Python 3.6 or higher.
-* No external libraries required (uses built-in `math` module).
+* MATLAB for running `problem4.m` and `problem5.m`.
+* No external Python libraries required for the Python-based problems.
 
 ## How to Run
 Clone the repository and run the scripts directly from your terminal or IDE:
@@ -44,3 +52,6 @@ cd <your-repository-directory>
 python problem1_overflow.py
 python problem2_newton_secant.py
 python problem3_bisection.py
+matlab -batch "problem4"
+matlab -batch "problem5"
+```
